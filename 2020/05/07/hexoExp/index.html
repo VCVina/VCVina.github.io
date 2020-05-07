@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>建立Hexo中踩过的坑，以及DIY网站的经验分享 - Miracle for me</title>
+  <title>建立Hexo个人网站的经验分享 - Miracle for me</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
@@ -168,7 +168,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    1.7k 字
+                    1.5k 字
                   </span>
                 
 
@@ -178,7 +178,7 @@
                       <i class="iconfont icon-clock-fill"></i>
                     
                     预计阅读时间 
-                    4
+                    3
                      分钟
                   </span>
                 
@@ -207,7 +207,9 @@
           <div class="post-content mx-auto" id="post">
             
             <article class="markdown-body">
-              <script type="text/javascript">
+              <p>本文旨在分享我个人在建立hexo过程中所遇到的问题以及对应的解决方法。<br>本文章为了方便阁下复制程序，解除了禁止复制和选择的命令。<br><a href="https://www.google.com/search?q=%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99&amp;oq=%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99&amp;aqs=chrome..69i57.5067j0j7&amp;sourceid=chrome&amp;ie=UTF-8" target="_blank" rel="noopener">链接：如何用hexo建立网站？</a></p>
+<a id="more"></a>
+<script type="text/javascript">
     // 禁止右键菜单
     document.oncontextmenu = function(){ return true; };
     // 禁止文字选择
@@ -222,7 +224,6 @@
     // document.onkeydown = function(){ return false; };
 </script>
 
-<p>本文旨在分享我个人在建立hexo过程中所遇到的问题以及对应的解决方法。<br>本文章为了方便阁下复制程序，解除了禁止复制和选择的命令。<br><a href="https://www.google.com/search?q=%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99&amp;oq=%E5%A6%82%E4%BD%95%E7%94%A8hexo%E5%BB%BA%E7%AB%8B%E4%B8%AA%E4%BA%BA%E7%BD%91%E7%AB%99&amp;aqs=chrome..69i57.5067j0j7&amp;sourceid=chrome&amp;ie=UTF-8" target="_blank" rel="noopener">链接：如何用hexo建立网站？</a><br><a id="more"></a></p>
 <h1 id="简短的解释该如何搭建hexo-Mac"><a href="#简短的解释该如何搭建hexo-Mac" class="headerlink" title="简短的解释该如何搭建hexo(Mac)"></a>简短的解释该如何搭建hexo(Mac)</h1><p>如果您用的环境是macOS，并且您想将自己的网页由GitHub进行托管，那么我已经摘录出了一些最重要的步骤，放在这里作为简单的参考。</p>
 <p>言外之意，您还是需要参考上面那些教程，本文只是摘录一下要点而已。</p>
 <h2 id="安装homebrew和git工具"><a href="#安装homebrew和git工具" class="headerlink" title="安装homebrew和git工具"></a>安装homebrew和git工具</h2><ol>
@@ -283,16 +284,7 @@ Address: &lt;您的GitHub用户名&gt;.github.io
 <h2 id="绑定域名以后，每次deploy以后都会出现404"><a href="#绑定域名以后，每次deploy以后都会出现404" class="headerlink" title="绑定域名以后，每次deploy以后都会出现404"></a>绑定域名以后，每次deploy以后都会出现404</h2><p>如果你没有乱糟蹋关键的文件，那么这个源文件多半是因为每次deploy都会导致Github Pages的设置中的custom domain和您购买的域名脱绑。</p>
 <p>您再去&lt;您的GitHub用户名&gt;.github.io的setting中检查一下custom domain，是否是被脱绑了？</p>
 <p>如果被脱绑了，其实这就是hexo本地一个配置文件没有写全的原因。</p>
-<p>前往myblog这个文件夹，您应该知道这个文件夹就是hexo初始化后所在的文件夹，里面会有一个文件叫做_config.yml，其中有一个片段如下文所示。<br><pre><code class="hljs plain"># URL
-## If your site is put in a subdirectory, set url as &#39;http:&#x2F;&#x2F;yoursite.com&#x2F;child&#39; and root as &#39;&#x2F;child&#x2F;&#39;
-url: https:&#x2F;&#x2F;yoursite.com&#x2F;
-root: &#x2F;
-permalink: :year&#x2F;:month&#x2F;:day&#x2F;:title&#x2F;
-permalink_defaults:
-pretty_urls:
-  trailing_index: true # Set to false to remove trailing &#39;index.html&#39; from permalinks
-  trailing_html: true # Set to false to remove trailing &#39;.html&#39; from permalinks</code></pre><br>请把<code>url:https://yoursite.com/</code>改成<code>url:您购买的域名</code></p>
-<p>当然你不改这个也可以，其实你每次deploy以后重新在setting里面绑定也可以解决问题，只不过有点烦。</p>
+<p>其实你每次deploy以后重新在setting里面绑定也可以解决问题，只不过有点烦。</p>
 
             </article>
             <hr>
@@ -310,9 +302,9 @@ pretty_urls:
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/ZH/">ZH</a>
-                    
                       <a class="hover-with-bg" href="/tags/web/">web</a>
+                    
+                      <a class="hover-with-bg" href="/tags/ZH/">ZH</a>
                     
                   </div>
                 
@@ -505,7 +497,7 @@ pretty_urls:
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "建立Hexo中踩过的坑，以及DIY网站的经验分享&nbsp;",
+        "建立Hexo个人网站的经验分享&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 2,
