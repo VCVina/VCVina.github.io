@@ -168,7 +168,7 @@
                   
                   <span class="post-meta mr-2">
                     <i class="iconfont icon-chart"></i>
-                    1.5k 字
+                    1.6k 字
                   </span>
                 
 
@@ -228,12 +228,12 @@
 <p>言外之意，您还是需要参考上面那些教程，本文只是摘录一下要点而已。</p>
 <h2 id="安装homebrew和git工具"><a href="#安装homebrew和git工具" class="headerlink" title="安装homebrew和git工具"></a>安装homebrew和git工具</h2><ol>
 <li>打开终端。</li>
-<li>如果您没有homebrew请先安装homebrew<pre><code class="hljs /usr/bin/ruby">3. 安装完成后，在终端中输入
-&#96;&#96;&#96;brew install git</code></pre></li>
+<li>如果您没有homebrew请先安装homebrew<code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</code></li>
+<li>安装完成后，在终端中输入<code>brew install git</code></li>
 <li>按理说git就安装完成了，您可以输入<code>git --version</code>测试一下，如果安装成功会有一个版本号。</li>
 </ol>
 <p>这样在您的电脑中就有git工具了，这个东西对于您在GitHub上架构一个网站是必备的。</p>
-<h2 id="配置hexo的环境"><a href="#配置hexo的环境" class="headerlink" title="配置hexo的环境"></a>配置hexo的环境</h2><p>随后您需要在电脑中选择一个合适的文件夹，以放入存有网页源文件的文件，例如<code>`/Users/Trump/Documents</code>，今后这个myblog文件夹将会是您网页的上级目录，包含所有网页文件的文件夹myblog都会放在其中。</p>
+<h2 id="配置hexo的环境"><a href="#配置hexo的环境" class="headerlink" title="配置hexo的环境"></a>配置hexo的环境</h2><p>随后您需要在电脑中选择一个合适的文件夹，以放入存有网页源文件的文件，例如<code>/Users/Trump/Documents</code>，今后这个myblog文件夹将会是您网页的上级目录，包含所有网页文件的文件夹都会放在其中。</p>
 <p>接下来就该新建这个所谓的myblog咯。</p>
 <pre><code class="hljs plain">$ cd &#x2F;Users&#x2F;Trump&#x2F;Documents
 $ npm install hexo-cli -g
@@ -246,15 +246,15 @@ $ hexo s</code></pre>
 <h1 id="遇到的问题和使用的技巧"><a href="#遇到的问题和使用的技巧" class="headerlink" title="遇到的问题和使用的技巧"></a>遇到的问题和使用的技巧</h1><h2 id="如何让文章被禁止用户选择、右键菜单和复制"><a href="#如何让文章被禁止用户选择、右键菜单和复制" class="headerlink" title="如何让文章被禁止用户选择、右键菜单和复制"></a>如何让文章被禁止用户选择、右键菜单和复制</h2><p>可以在每个Markdown博文正文前输入如下脚本，当然你可以根据注释自己选择其中的内容。<br><pre><code class="hljs js">&lt;script type=<span class="hljs-string">"text/javascript"</span>&gt;
     <span class="hljs-comment">// 禁止右键菜单</span>
     <span class="hljs-comment">// true是允许，false是禁止</span>
-    <span class="hljs-built_in">document</span>.oncontextmenu = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123; <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; &#125;;
+    <span class="hljs-built_in">document</span>.oncontextmenu = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123; <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; &#125;;
     <span class="hljs-comment">// 禁止文字选择</span>
-    <span class="hljs-built_in">document</span>.onselectstart = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123; <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; &#125;;
+    <span class="hljs-built_in">document</span>.onselectstart = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123; <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; &#125;;
     <span class="hljs-comment">// 禁止复制</span>
-    <span class="hljs-built_in">document</span>.oncopy = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123; <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; &#125;;
+    <span class="hljs-built_in">document</span>.oncopy = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123; <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; &#125;;
     <span class="hljs-comment">// 禁止剪切</span>
-    <span class="hljs-built_in">document</span>.oncut = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123; <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; &#125;;
+    <span class="hljs-built_in">document</span>.oncut = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123; <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; &#125;;
     <span class="hljs-comment">// 禁止粘贴</span>
-    <span class="hljs-built_in">document</span>.onpaste = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123; <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>; &#125;;
+    <span class="hljs-built_in">document</span>.onpaste = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>&#123; <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>; &#125;;
     <span class="hljs-comment">// 禁止键盘事件</span>
     <span class="hljs-comment">// document.onkeydown = function()&#123; return false; &#125;;</span>
 &lt;<span class="hljs-regexp">/script&gt;</span></code></pre></p>
@@ -302,9 +302,9 @@ Address: &lt;您的GitHub用户名&gt;.github.io
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/web/">web</a>
-                    
                       <a class="hover-with-bg" href="/tags/ZH/">ZH</a>
+                    
+                      <a class="hover-with-bg" href="/tags/web/">web</a>
                     
                   </div>
                 
@@ -316,6 +316,12 @@ Address: &lt;您的GitHub用户名&gt;.github.io
                 <div class="post-prevnext row">
                   <div class="post-prev col-6">
                     
+                    
+                      <a href="/2020/06/10/modelOfNobita/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">翻译：野比大雄究竟住在哪儿</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </div>
                   <div class="post-next col-6">
